@@ -6,3 +6,7 @@
 > run `npm start` for dev
 
 > run `npm run build` for build
+
+### result
+
+![](https://raw.githubusercontent.com/weglov/treechart/master/gif.gif)

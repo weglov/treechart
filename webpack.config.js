@@ -21,6 +21,11 @@ module.exports = {
       template: '!!html-loader!./index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
