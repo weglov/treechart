@@ -4,62 +4,11 @@
   <meta charset="UTF-8">
   <script src="//d3plus.org/js/d3.js"></script>
   <script src="//d3plus.org/js/d3plus.js"></script>
-  <title>TREE CHART</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Tahoma, Helvetica;
-    }
-
-    li {
-          padding: 5px 0;
-    }
-
-    button {
-      padding: 2px;
-      margin: 3px;
-    }
-
-    .container {
-      width: 70vw;
-      padding: 25px;
-      margin: 0;
-      height: 80vh;
-      display: table-cell;
-      position: relative;
-    }
-    .legend {
-      width: 30vw;
-      padding: 25px;
-      display: table-cell;
-    }
-  </style>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/8bit-wonder" type="text/css"/>
+  <title>INGRAM MICRO - STATS LANGUAGES</title>
 </head>
 <body>
-  <div class="container">
-    <h1>TOP KEK 2</h1>
-    <div id="chart"></div>
-  </div>
-  <div class="legend" id="app">
-    <h3>CTRL:</h3>
-    <ol>
-      <todo-item
-        v-for="item in sample"
-        v-bind:data="item"
-        v-bind:render="reRender"
-        v-bind:remove="removeValue"
-        v-bind:key="item.name">
-      </todo-item>
-    </ol>
-    <form v-on:submit.prevent="addData">
-      <input v-model="name" placeholder="name">
-      <button>Add</button>
-    </form>
-  </div>
+  <div id="app"></div>
+  <script src="/dist/build.js"></script>
 </body>
 </html>

@@ -1,36 +1,78 @@
 var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
+
 
 module.exports = {
-  entry: './app.js',
+  entry: './app/main.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
+    filename: 'build.js'
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+          },
+          extractCSS: true,
+        }
+      },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
         loader: 'babel-loader',
+        exclude: /node_modules/
       },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: '!!html-loader!./index.html',
-    }),
-  ],
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js'
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    historyApiFallback: true,
+    noInfo: true,
     port: 8181,
-    host: '0.0.0.0',
-    disableHostCheck: true,
   },
-};
+  performance: {
+    hints: false
+  },
+  devtool: '#eval-source-map',
+  plugins: [
+    new ExtractTextPlugin("style.css"),
+  ],
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
+    new ExtractTextPlugin("style.css")
+  ])
+}
