@@ -6,6 +6,8 @@
 
 <script>
 import config from './config.js';
+import numeral from 'numeral';
+
 
 export default {
   data() {
@@ -20,7 +22,7 @@ export default {
     fetchData () {
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET' })
         .then((response) => {
-          this.poll = response.body.totalPollHits;
+          this.poll = numeral(response.body.totalPollHits).format('0.0a');
         })
     }
   }
