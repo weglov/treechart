@@ -1,6 +1,6 @@
 <template>
   <div id="legend">
-    <h1>Legend</h1>
+    <h1>Score:</h1>
     <counter></counter>
   </div>
 </template>
