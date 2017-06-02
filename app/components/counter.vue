@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import config from './config.js';
+import config from '../config/';
 import _ from 'lodash';
 import ICountUp from 'vue-countup-v2';
 

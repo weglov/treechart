@@ -2,21 +2,23 @@ import Vue from 'vue';
 import app from './app.vue';
 import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
+import VueCookie from 'vue-cookie';
 
 
 
-import vote from './vote.vue';
-import signIn from './signIn.vue';
-import chart from './chart.vue'
+import vote from './components/vote.vue';
+import signIn from './components/signIn.vue';
+import chart from './components/chart.vue'
 
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
+Vue.use(VueCookie);
 
 
 const routes = [
   { path: '/vote', component: vote, name: 'vote' },
-  { path: '/signin', component: signIn, name: 'signin' },
+  { path: '/register', component: signIn, name: 'signin' },
   { path: '/', component: chart, name: 'main' }
 ];
 

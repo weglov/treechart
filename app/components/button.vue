@@ -1,29 +1,32 @@
 <template>
-  <button class='voteButton btn' v-on:click='vote(info.id)' v-bind:style='{ background: info.color }'>
+  <button class='voteButton btn' v-on:click='vote(info.id)' v-bind:style='{ background: info.color, color: info.text }'>
     {{ info.placeholder }}
   </button>
 </template>
 
 <script>
-import config from '../config.js';
+import config from '../config/';
 
 export default {
-  props: ['info'],
+  props: ['info', 'show', 'alertshow'],
   data() {
     return {}
   },
   methods: {
     vote(id) {
       const body = {
-        email: 'vscheglov@odin.com',
+        email: this.$cookie.get('email'),
         language: id,
       };
 
       this.$http.post(`${config.baseUrl}poll`, body)
         .then((res) => {
-          console.log(res);
+          this.alertshow('success', 'Vote success!', 1000)
+        })
+        .catch((res) => {
+          this.alertshow('error', 'Something went wrong', 5000)
         });
-    }
+    },
   }
 }
 </script>

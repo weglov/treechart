@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import sample_data from './data.js';
+import sample_data from './config/data.js';
 import _ from 'lodash';
 
 

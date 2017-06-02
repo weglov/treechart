@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import config from './config.js';
-import sample_data from './data.js';
+import config from '../config/';
+import sample_data from '../config/data.js';
 import _ from 'lodash';
 import headerComponent from './header.vue';
 
@@ -35,6 +35,7 @@ export default {
         .color('color')
         .text('placeholder')
         .size('value')
+        .messages(false)
         .mouse({                
           'move': false,
           'click': false,
@@ -80,9 +81,6 @@ export default {
     vertical-align: top;
     > div {
       margin: 0 auto;
-    }
-    text {
-      font-size: 50px !important;
     }
   }
 </style>
