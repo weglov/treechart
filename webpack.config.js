@@ -52,7 +52,7 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   plugins: [
-    new ExtractTextPlugin("style.css"),
+    new ExtractTextPlugin('style.css'),
   ],
 }
 
@@ -73,6 +73,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
-    new ExtractTextPlugin("style.css")
+    new ExtractTextPlugin('style.css')
   ])
 }
