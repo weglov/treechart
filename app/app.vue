@@ -31,6 +31,7 @@ export default {
       .data(sample_data)
       .type('tree_map')
       .id('name')
+      .color('color')
       .text('placeholder')
       .dev(true)
       .size('value')
@@ -38,6 +39,7 @@ export default {
         'move': false,
         'click': false,
       })
+      .legend(false)
       .draw();
   },
   methods: {
