@@ -1,7 +1,7 @@
 <template>
   <div id='app_vote'>
-    <div class='logo'>Ingrammicrocloud</div>
-    <h1>VOTE TRUMP:</h1>
+    <div class='logo logo-enter'>Ingrammicrocloud</div>
+    <h1>VOTE:</h1>
     <div class='button_item' v-for='item in data'>
       <button-component v-bind:info='item'></button-component>
     </div>
@@ -30,6 +30,10 @@ export default {
   h1 {
     font-size: 50px;
     font-weight: bold;
+  }
+  .logo-enter {
+    display: block;
+    margin: 0 auto;
   }
 
   .button_item {

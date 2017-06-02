@@ -39,7 +39,7 @@ export default {
           'move': false,
           'click': false,
         })
-        .font({ 'weight': 'bold' })
+        .font({ weight: 'bold' })
         .background('#323232')
         .legend(false)
         .draw();
@@ -80,6 +80,9 @@ export default {
     vertical-align: top;
     > div {
       margin: 0 auto;
+    }
+    text {
+      font-size: 50px !important;
     }
   }
 </style>

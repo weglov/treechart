@@ -51,7 +51,7 @@ export default {
   .btn:active {
     transform: translate(0px, 5px);
     -webkit-transform: translate(0px, 5px);
-    box-shadow: 0px 1px 0px 0px;
+    box-shadow: 0px 4px 0px 0px #000;
   }
 
 </style>
