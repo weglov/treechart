@@ -2,7 +2,7 @@
   <div id='app'>
     <header></header>
     <div id='chart'></div>
-    <legend-data></legend-data>
+    <legend-data v-bind:data='sample'></legend-data>
   </div>
 
 </template>
@@ -39,6 +39,7 @@ export default {
         'move': false,
         'click': false,
       })
+      .font({ 'weight': 'bold' })
       .background('#323232')
       .legend(false)
       .draw();
