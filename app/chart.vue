@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import config from './config.js';
 import sample_data from './data.js';
 import _ from 'lodash';
 import headerComponent from './header.vue';
@@ -18,34 +19,54 @@ export default {
   data() {
     return {
       sample: sample_data,
-      counter: 125,
       chart: '',
     }
   },
   mounted() {
-    this.chart = d3plus.viz()
-      .container('#chart')
-      .data(sample_data)
-      .type('tree_map')
-      .id('name')
-      .color('color')
-      .text('placeholder')
-      .size('value')
-      .mouse({                
-        'move': false,
-        'click': false,
-      })
-      .font({ 'weight': 'bold' })
-      .background('#323232')
-      .legend(false)
-      .draw();
+    this.startPolling()
   },
   methods: {
+    renderChart() {
+      this.chart =d3plus.viz()
+        .container('#chart')
+        .data(this.sample)
+        .type('tree_map')
+        .id('name')
+        .color('color')
+        .text('placeholder')
+        .size('value')
+        .mouse({                
+          'move': false,
+          'click': false,
+        })
+        .font({ 'weight': 'bold' })
+        .background('#323232')
+        .legend(false)
+        .draw();
+    },
     reRender() {
       this.chart
         .data(this.sample)
         .draw();
     },
+    getResult(first) {
+      this.$http({ url: `${config.baseUrl}poll?full=true`, method: 'GET', emulateJSON: true })
+        .then((response) => {
+          const votes = _.get(response, 'body.votes');
+          this.sample = _.map(this.sample, (val, key) => {
+            val.value = votes[val.id];
+            return val;
+          });
+
+          if (first) return this.renderChart();
+
+          return this.reRender();
+        })
+    },
+    startPolling() {
+      this.getResult(true);
+      setInterval(() => this.getResult(), 5000); 
+    }
   }
 }
 </script>

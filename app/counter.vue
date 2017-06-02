@@ -47,7 +47,6 @@ export default {
       this.poll = ins.endVal;
     },
     fetchData(first) {
-
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
           const count = _.toNumber(response.body.totalPollHits);
