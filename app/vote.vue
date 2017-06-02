@@ -1,7 +1,7 @@
 <template>
   <div id='app_vote'>
     <div class='logo'>Ingrammicrocloud</div>
-    <h1>VOTE:</h1>
+    <h1>VOTE TRUMP:</h1>
     <div class='button_item' v-for='item in data'>
       <button-component v-bind:info='item'></button-component>
     </div>

@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import app from './app.vue';
 import VueResource from 'vue-resource';
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
+
 
 
 import vote from './vote.vue';
