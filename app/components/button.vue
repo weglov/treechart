@@ -35,7 +35,7 @@ export default {
   .voteButton {
     width: 100%;
     height: 10vh;
-    font-size: 8vh;
+    font-size: 3vh;
     display: inline-block;
     position: relative;
     border: none;
@@ -44,7 +44,6 @@ export default {
     outline: none;
     border-radius: 5px;
     padding: 15px 25px;
-    font-size: 22px;
     text-decoration: none;
     color: #fff;
     position: relative;
