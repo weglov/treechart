@@ -1,11 +1,13 @@
 <template>
   <div class="counter">
-    <span>{{ poll }}</span>
+    <div class='polls'>POLLS:</div>
+    <div class='number'>{{ poll }}</div>
   </div>
 </template>
 
 <script>
 import config from './config.js';
+import _ from 'lodash';
 import numeral from 'numeral';
 
 
@@ -20,9 +22,15 @@ export default {
   },
   methods: {
     fetchData () {
-      this.$http({ url: `${config.baseUrl}poll`, method: 'GET' })
+      this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
-          this.poll = numeral(response.body.totalPollHits).format('0.0a');
+          const count = _.toNumber(response.body.totalPollHits);
+
+          if (count > 1000) {
+            this.poll = numeral(count).format('0.0a');
+          } else {
+            this.poll = count;
+          }
         })
     }
   }
@@ -31,11 +39,24 @@ export default {
 
 <style lang='scss'>
   .counter {
-    font-family: '8BITWONDERNominal'; 
-    font-weight: normal; 
-    font-style: normal; 
-    font-size: 60px;
-    color: #fff;
-    text-align: center;
+    .polls {
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+      color: #e3e3e3;
+      padding: 3vh 0;
+      margin: 0 10px;
+    }
+    .number {
+      line-height: 1;
+      display: inline-block;
+      font-family: '8BITWONDERNominal'; 
+      font-weight: normal; 
+      font-style: normal; 
+      font-size: 4rem;
+      color: #fff;
+      text-align: center;
+    }
   }
 </style>
