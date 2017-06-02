@@ -5,10 +5,12 @@
 </template>
 
 <script>
+import config from './config.js';
+
 export default {
   data() {
     return {
-      poll: 256,
+      poll: 1,
     }
   },
   created () {
@@ -16,10 +18,9 @@ export default {
   },
   methods: {
     fetchData () {
-      this.poll = null;
-      this.$http({ url: 'http://stats.df.wtf/api/v1/poll', method: 'GET' })
+      this.$http({ url: `${config.baseUrl}poll`, method: 'GET' })
         .then((response) => {
-          console.log(response);
+          this.poll = response.body.totalPollHits;
         })
     }
   }

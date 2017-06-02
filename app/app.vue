@@ -39,6 +39,7 @@ export default {
         'move': false,
         'click': false,
       })
+      .background('#323232')
       .legend(false)
       .draw();
   },
