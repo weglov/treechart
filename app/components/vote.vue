@@ -1,6 +1,6 @@
 <template>
   <div id='app_vote'>
-    <header-admin title='VOTE:'></header-admin>
+    <header-admin title='VOTE'></header-admin>
     <div class='button_item' v-for='item in data'>
       <button-component v-bind:show='show' v-bind:alertshow='alertShow' v-bind:info='item'></button-component>
     </div>

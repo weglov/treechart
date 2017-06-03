@@ -58,7 +58,12 @@ export default {
         })
         .catch((res) => {
           this.show = true;
-          this.text = _.get(res, 'body.msg', 'Something went wrong');
+          if (res,status === 400) {
+            this.$cookie.set('email', this.email, 7);
+            this.$router.push('/vote');
+          }
+
+          this.text = _.get(res, 'body.errors[0].msg', 'Something went wrong');
           setTimeout(() => this.show = false, 5000)
         });
     },
@@ -70,7 +75,7 @@ export default {
   .enter-to-vote {
     position: relative;
     display: block;
-    margin: 4vh 2vh;
+    margin: 4vh 0;
     button {
       width: 100%;
       padding: 2vh;
@@ -84,7 +89,7 @@ export default {
   }
   .form-element {
     display: block;
-    margin: 2vh;
+    margin: 2vh 0;
     label {
       display: block;
       margin: 5px 0;

@@ -8,8 +8,7 @@ const sample_data = [
   { id: 6, color: '#178600', placeholder: 'C#', 'value': 1, 'name': 'C-sharp' },
   { id: 7, color: '#555555', placeholder: 'C', 'value': 1, 'name': 'C' },
   { id: 8, color: '#375eab', placeholder: 'Go', 'value': 1, 'name': 'Go' },
-  { id: 9, color: '#89e051', placeholder: 'Shell', 'value': 1, 'name': 'Shell' },
-  { id: 10, text: '#000', color: '#e9e9e9', placeholder: 'Other', 'value': 1, 'name': 'Other' },
+  { id: 9, text: '#000', color: '#e9e9e9', placeholder: 'Other', 'value': 1, 'name': 'Other' },
 ];
 
 export default sample_data;

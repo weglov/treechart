@@ -1,7 +1,7 @@
 <template>
     <header>
       <div class='logo'>Ingrammicrocloud</div>
-      <h1>Сюда нужна фраза Саш <a href='/register'>голосовать</a></h1>
+      <h1>Сюда нужна фраза Саш <a href='/#/register'>голосовать</a></h1>
       <counter-component v-if=''></counter-component>
     </header>
 </template>

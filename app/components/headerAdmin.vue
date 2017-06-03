@@ -2,8 +2,8 @@
   <div>
     <header>
       <div class='logo logo-enter'>Ingrammicrocloud</div>
+      <h3>{{ title }}</h3>
     </header>
-    <h3>{{ title }}</h3>
   </div>
 </template>
 
@@ -18,20 +18,22 @@ export default {
     font-size: 5vh;
     font-weight: bold;
     margin: 15px;
+    display: table-cell;
   }
 
   header {
-    background: #0054c5;
     height: 10vh;
     padding: 2vh 0;
-    margin: -25px -25px 25px -25px;
+    display: table;
+    width: 100%;
   }
 
   .logo-enter {
     display: block;
     margin: 0 auto;
-    background-position: center center;
+    background-position: left center;
     height: 6vh;
     width: 50%;
+    display: table-cell;
   }
 </style>
