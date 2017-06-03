@@ -56,7 +56,7 @@ export default {
     },
     startPolling() {
       this.fetchData(true);
-      setInterval(() => this.fetchData(), config.timer * 100); 
+      setInterval(() => this.fetchData(), config.timerMS); 
     }
   }
 }
