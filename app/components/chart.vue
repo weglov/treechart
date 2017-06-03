@@ -66,7 +66,7 @@ export default {
     },
     startPolling() {
       this.getResult(true);
-      setInterval(() => this.getResult(), 20000); 
+      setInterval(() => this.getResult(), config.rerender); 
     }
   }
 }

@@ -3,7 +3,6 @@
     <div class='polls'>POLLS:</div>
     <div class='number'>
       <i-count-up
-        v-if='poll'
         v-bind:start='poll'
         v-bind:end='end'
         :decimals='0'
