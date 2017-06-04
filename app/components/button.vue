@@ -21,10 +21,10 @@ export default {
 
       this.$http.post(`${config.baseUrl}poll`, body)
         .then((res) => {
-          this.alertshow('success', 'учтено🔥, жми еще 👌', 1000)
+          this.alertshow('success', 'учтено 🔥, жми еще 👌', 1000)
         })
         .catch((res) => {
-          this.alertshow('error', 'Something went wrong', 5000)
+          this.alertshow('error', 'что-то пошло не так 💩', 5000)
         });
     },
   }
