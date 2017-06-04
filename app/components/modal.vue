@@ -40,7 +40,7 @@ export default {
     background: #ffffff;
     border: 3vh solid #0054c5;
     color: #000;
-    font-size: 4vh;
+    font-size: 3vh;
     width: 94vw;
     z-index: 200;
     top: 0px;

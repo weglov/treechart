@@ -1,9 +1,9 @@
 <template>
   <div id='app_vote'>
+    <header-admin></header-admin>
     <div class='button_item' v-for='item in data'>
       <button-component v-bind:show='show' v-bind:alertshow='alertShow' v-bind:info='item'></button-component>  
     </div>
-    <a class='logout' v-on:click='logout()'>logout</a>
     <alert v-bind:show='show' v-bind:text='text' v-bind:type='type'></alert>
   </div>
 </template>
@@ -35,10 +35,6 @@ export default {
     if (!email) return this.$router.push('/register');
   },
   methods: {
-    logout() {
-      this.$cookie.delete('email');
-      return this.$router.push('/register');
-    },
     alertShow(type, text, timer = 15000) {
       this.show = true;
       this.type = type;
