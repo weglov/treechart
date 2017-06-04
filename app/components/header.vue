@@ -26,7 +26,7 @@ export default {
     padding: 0 0 25px;
     overflow: hidden;
     p {
-      font-size: 6vh;
+      font-size: 5.5vh;
       display: table-cell;
       width: 65vw;
       text-align: left;

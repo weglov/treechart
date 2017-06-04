@@ -72,13 +72,13 @@ export default {
 <style lang='scss'>
   .counter {
     .polls {
-        font-size: 9vh;
-        font-weight: bold;
-        display: inline-block;
-        vertical-align: bottom;
-        color: #e3e3e3;
-        margin: 0 1vw;
-        line-height: 1;
+      font-size: 9vh;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: bottom;
+      color: #e3e3e3;
+      margin: 0 1vw;
+      line-height: 1;
     }
     .number {
       line-height: 1;
