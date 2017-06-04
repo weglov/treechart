@@ -26,7 +26,7 @@ export default {
     return {
       data: sample_data,
       show: false,
-      text: 'Something went wrong',
+      text: 'что-то пошло не так 💩',
       type: 'error',
     }
   },
