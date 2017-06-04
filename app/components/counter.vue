@@ -1,6 +1,6 @@
 <template>
   <div class="counter">
-    <div class='polls'>POLLS:</div>
+    <div class='polls'>{{ emoji.get('ballot_box_with_ballot') }}</div>
     <div class='number'>
       <i-count-up
         v-if='poll'
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import emoji from 'node-emoji';
 import config from '../config/';
 import _ from 'lodash';
 import ICountUp from 'vue-countup-v2';
@@ -28,6 +29,7 @@ export default {
     return {
       poll: 0,
       end: 0,
+      emoji: emoji,
       duration: config.timer,
       options: {
         useEasing: true,
@@ -49,7 +51,12 @@ export default {
     fetchData(first) {
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
-          const count = _.toNumber(response.body.totalPollHits);
+          let count = _.toNumber(response.body.totalPollHits);
+          if (count > 10000) {
+            count = count / 1000;
+            this.options.suffix = 'к';
+          }
+
           if (first) this.poll = count - count / 5; this.end = count;
           this.end = count;
         })
@@ -65,13 +72,13 @@ export default {
 <style lang='scss'>
   .counter {
     .polls {
-      font-size: 1rem;
-      font-weight: bold;
-      display: inline-block;
-      vertical-align: bottom;
-      color: #e3e3e3;
-      margin: 0 10px;
-      line-height: 2.3;
+        font-size: 9vh;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: bottom;
+        color: #e3e3e3;
+        margin: 0 1vw;
+        line-height: 1;
     }
     .number {
       line-height: 1;

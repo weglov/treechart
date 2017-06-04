@@ -1,9 +1,8 @@
 <template>
   <div>
-    <header>
+    <footer>
       <div class='logo logo-enter'>Ingrammicrocloud</div>
-      <h3>{{ title }}</h3>
-    </header>
+    </footer>
   </div>
 </template>
 
@@ -21,18 +20,21 @@ export default {
     display: table-cell;
   }
 
-  header {
-    height: 10vh;
-    padding: 2vh 0;
+  footer {
+    height: 3vh;
     display: table;
     width: 100%;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    opacity: .7;
   }
 
   .logo-enter {
     display: block;
     margin: 0 auto;
-    background-position: left center;
-    height: 6vh;
+    background-position: right center;
+    height: 3vh;
     width: 50%;
     display: table-cell;
   }

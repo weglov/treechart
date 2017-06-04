@@ -1,7 +1,6 @@
 <template>
     <header>
-      <div class='logo'>Ingrammicrocloud</div>
-      <h1>Сюда нужна фраза Саш <a href='/#/register'>голосовать</a></h1>
+      <a href='/'>🙀 🤖 <span>Голосуй на ODN.PW и выиграй</span> 🏆</a>
       <counter-component v-if=''></counter-component>
     </header>
 </template>
@@ -26,16 +25,22 @@ export default {
     text-align: left;
     padding: 0 0 25px;
     overflow: hidden;
-    h1 {
-      font-size: 1rem;
+    a {
+      font-size: 6vh;
       display: table-cell;
-      width: 40vw;
-      text-align: center;
+      width: 60vw;
+      text-align: left;
+      color: #44c0ff;
+      font-weight: bold;
       vertical-align: middle;
+      text-decoration: none;
+      span {
+        border-bottom: 1vh solid #44c0ff;
+      }
     }
     .counter {
       text-align: right;
-      width: 30vw;
+      width: 40vw;
       display: table-cell;
     }
   }

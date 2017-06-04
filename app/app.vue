@@ -1,15 +1,20 @@
 <template>
   <div id='app'>
     <router-view class="view"></router-view>
+  <header-admin></header-admin>
   </div>
 </template>
 
 <script>
 import sample_data from './config/data.js';
 import _ from 'lodash';
-
+import headerAdmin from './components/headerAdmin.vue';
 
 export default {
+  components: {
+    alert,
+    headerAdmin
+  },
   name: 'app',
 }
 </script>
@@ -55,7 +60,7 @@ export default {
   }
 
   a {
-    color: #42b983;
+    color: #0054c5;
   }
 
   .logo {

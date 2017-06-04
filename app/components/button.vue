@@ -21,7 +21,7 @@ export default {
 
       this.$http.post(`${config.baseUrl}poll`, body)
         .then((res) => {
-          this.alertshow('success', 'Vote success!', 1000)
+          this.alertshow('success', 'учтено🔥, жми еще 👌', 1000)
         })
         .catch((res) => {
           this.alertshow('error', 'Something went wrong', 5000)

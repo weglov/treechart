@@ -1,6 +1,6 @@
 <template>
   <div id='app_vote'>
-    <header-admin title='SIGN IN'></header-admin>
+    <modal></modal>
     <form v-on:submit.prevent='submitUser'>
       <div class="form-element">
         <label for='email'>You email:</label>
@@ -20,15 +20,15 @@
 
 <script>
 import _ from 'lodash';
-import headerAdmin from './headerAdmin.vue';
 import alert from './alert.vue';
+import modal from './modal.vue';
 import config from '../config/';
 
 
 export default {
   components: {
-    headerAdmin,
-    alert
+    alert,
+    modal
   },
   data() {
     return {
@@ -54,16 +54,16 @@ export default {
       return this.$http.post(`${config.baseUrl}register`, body)
         .then((res) => {
           this.$cookie.set('email', this.email, 7);
-          this.$router.push('/vote');
+          this.$router.push('/');
         })
         .catch((res) => {
           this.show = true;
-          if (res.status === 400) {
+          if (res.status === 400 && !_.find(res.body.errors, { param: 'name' })) {
             if (this.email === 'charlie@odin.com') {
               return this.$router.push('/naprimer');
             }
             this.$cookie.set('email', this.email, 7);
-            this.$router.push('/vote');
+            this.$router.push('/');
           }
 
           this.text = _.get(res, 'body.errors[0].msg', 'Something went wrong');
