@@ -1,6 +1,6 @@
 <template>
     <header>
-      <a href='/'>🙀 🤖 <span>Голосуй на ODN.PW и выиграй</span> 🏆</a>
+      <p>🙀🤖<span> Проголосуй на <b><a href='/'>ODN.PW</a></b> и выиграй</span> 🏆</p>
       <counter-component v-if=''></counter-component>
     </header>
 </template>
@@ -25,22 +25,26 @@ export default {
     text-align: left;
     padding: 0 0 25px;
     overflow: hidden;
-    a {
+    p {
       font-size: 6vh;
       display: table-cell;
-      width: 60vw;
+      width: 65vw;
       text-align: left;
-      color: #44c0ff;
+      color: #FFFFFF;
       font-weight: bold;
       vertical-align: middle;
       text-decoration: none;
+    }
+    a {
+      color: #44c0ff;
       span {
         border-bottom: 1vh solid #44c0ff;
       }
+
     }
     .counter {
       text-align: right;
-      width: 40vw;
+      width: 35vw;
       display: table-cell;
     }
   }
