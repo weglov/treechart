@@ -22,6 +22,10 @@ export default {
   body {
     background: #232323;
   }
+  .fix-width {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
   * {
     margin: 0;

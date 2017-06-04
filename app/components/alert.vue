@@ -21,6 +21,7 @@ export default {
     padding-top: 10vh;
     margin: 0 -25px;
     width: 100%;
+    left: 0;
     color: #fff;
     &.success {
       background-image: radial-gradient(ellipse farthest-side at 50% 100%,#13a230,rgba(178,0,0,0));

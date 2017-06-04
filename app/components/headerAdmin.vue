@@ -35,6 +35,7 @@ export default {
     height: 3vh;
     display: table;
     width: 100%;
+    padding:0 1vw 4vh;
   }
 
   .logo-enter {

@@ -1,5 +1,5 @@
 <template>
-  <div id='app_vote'>
+  <div id='app_vote' class='fix-width'>
     <modal></modal>
     <form v-on:submit.prevent='submitUser'>
       <div class="form-element">

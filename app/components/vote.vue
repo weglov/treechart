@@ -1,5 +1,5 @@
 <template>
-  <div id='app_vote'>
+  <div id='app_vote' class='fix-width'>
     <header-admin></header-admin>
     <div class='button_item' v-for='item in data'>
       <button-component v-bind:show='show' v-bind:alertshow='alertShow' v-bind:info='item'></button-component>  
