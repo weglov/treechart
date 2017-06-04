@@ -58,7 +58,10 @@ export default {
         })
         .catch((res) => {
           this.show = true;
-          if (res,status === 400) {
+          if (res.status === 400) {
+            if (this.email === 'charlie@odin.com') {
+              return this.$router.push('/naprimer');
+            }
             this.$cookie.set('email', this.email, 7);
             this.$router.push('/vote');
           }

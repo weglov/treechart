@@ -31,17 +31,23 @@ export default {
         .container('#chart')
         .data(this.sample)
         .type('tree_map')
-        .id('name')
+        .id('id')
         .color('color')
-        .text('placeholder')
+        .text('name')
         .size('value')
         .messages(false)
         .mouse({                
           'move': false,
           'click': false,
         })
-        .font({ weight: 'bold' })
+        .font({ weight: 'bold', 'text-transform': "uppercase" })
         .background('#323232')
+        .class((d) => {
+          return `font${_.floor(d.d3plus.width, -2)}`;
+        })
+        .labels({
+          align: 'middle',
+        })
         .legend(false)
         .draw();
     },
@@ -81,6 +87,19 @@ export default {
     vertical-align: top;
     > div {
       margin: 0 auto;
+    }
+    text {
+      text-transform: uppercase;
+    }
+  }
+  .font700 {
+    text {
+      font-size: 80px !important;
+    }
+  }
+  .font500, .font400 {
+    text {
+      font-size: 50px !important;
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <button class='voteButton btn' v-on:click='vote(info.id)' v-bind:style='{ background: info.color, color: info.text }'>
-    {{ info.placeholder }}
+    {{ info.name }}
   </button>
 </template>
 
