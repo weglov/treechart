@@ -94,12 +94,12 @@ export default {
   }
   .font700 {
     text {
-      font-size: 80px !important;
+      font-size: 90px !important;
     }
   }
   .font500, .font400 {
     text {
-      font-size: 50px !important;
+      font-size: 70px !important;
     }
   }
 </style>
