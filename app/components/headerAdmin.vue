@@ -2,7 +2,7 @@
   <div>
     <header>
       <div class='logo logo-enter'>Ingrammicrocloud</div>
-      <button class='logout' v-on:click='logout()'>🚶 logout</button>
+      <button class='logout' v-on:click='logout()'>🚶 выйти</button>
     </header>
   </div>
 </template>
@@ -24,7 +24,9 @@ export default {
     padding: 10px 25px;
     font-size: 2vh;
     font-weight: bold;
-    color: #fff;
+    background: #fff;
+    border: none;
+    color: #000;
     text-decoration: none;
     display: table-cell;
   }
