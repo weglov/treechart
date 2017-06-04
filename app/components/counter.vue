@@ -3,6 +3,7 @@
     <div class='polls'>POLLS:</div>
     <div class='number'>
       <i-count-up
+        v-if='poll'
         v-bind:start='poll'
         v-bind:end='end'
         :decimals='0'
@@ -43,13 +44,13 @@ export default {
   },
   methods: {
     callback(ins) {
-      this.poll = ins.endVal;
+      // this.poll = ins.endVal;
     },
     fetchData(first) {
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
           const count = _.toNumber(response.body.totalPollHits);
-          if (first) this.poll = this.end = count;
+          if (first) this.poll = count - count / 5; this.end = count;
           this.end = count;
         })
     },
