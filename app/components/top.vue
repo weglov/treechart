@@ -12,7 +12,7 @@
   </ol>
   </div>
 </template>
-🥇🥈🥉
+
 
 <script>
 import config from '../config/';
@@ -35,7 +35,7 @@ export default {
     },
     startPolling() {
       this.fetchData();
-      setInterval(() => this.fetchData(), rerender * 6);
+      setInterval(() => this.fetchData(), config.rerender * 6);
     }
   }
 };

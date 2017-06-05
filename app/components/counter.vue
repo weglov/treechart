@@ -1,6 +1,5 @@
 <template>
   <div class="counter">
-    <div class='polls'></div>
     <div class='number'>
       <i-count-up
         v-if='poll'
@@ -52,17 +51,17 @@ export default {
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
           let count = _.toNumber(response.body.totalPollHits);
-          if (count > 10000 && count < 1000000) {
-            count = count / 1000;
-            this.options.suffix = 'к';
-          } else if (count > 1000000) {
-            count = count / 1000000;
-            this.options.suffix = 'м';
-            this.decimals = 1;
-          } else {
-            this.decimals = 0;
-            this.options.suffix = '';
-          }
+          // if (count > 10000 && count < 1000000) {
+          //   count = count / 1000;
+          //   this.options.suffix = 'к';
+          // } else if (count > 1000000) {
+          //   count = count / 1000000;
+          //   this.options.suffix = 'м';
+          //   this.decimals = 1;
+          // } else {
+          //   this.decimals = 0;
+          //   this.options.suffix = '';
+          // }
 
           if (first) this.poll = count - count / 10; this.end = count;
           this.end = count;
@@ -99,7 +98,7 @@ export default {
       display: inline-block;
       font-weight: bold; 
       font-style: normal; 
-      font-size: 4rem;
+      font-size: 3.5rem;
       color: #fff;
       text-align: center;
     }

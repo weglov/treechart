@@ -2,7 +2,7 @@
     <header>
       <p>🙀🤖<span> Проголосуй на <b><a href='/'>ODN.PW</a></b> и выиграй</span> 🏆</p>
       <counter-component></counter-component>
-      <top-component></top-component>
+      <!-- <top-component></top-component> -->
     </header>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     padding: 0 0 25px;
     overflow: hidden;
     p {
-      font-size: 4.5vh;
+      font-size: 5vh;
       display: inline-block;
       width: 65vw;
       text-align: left;

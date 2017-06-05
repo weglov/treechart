@@ -2,6 +2,9 @@
   <div>
     <header-component></header-component>
     <div id='chart'></div>
+    <div id='sidebar'>
+      <toprps></toprps>
+    </div>
   </div>
 </template>
 
@@ -10,11 +13,13 @@ import config from '../config/';
 import sample_data from '../config/data.js';
 import _ from 'lodash';
 import headerComponent from './header.vue';
+import toprps from './topRPS.vue';
 
 
 export default {
   components: {
     headerComponent,
+    toprps,
   },
   data() {
     return {
@@ -44,7 +49,7 @@ export default {
         .background('#323232')
         .class((d) => {
           const font = `font${_.floor(d.d3plus.width, -2)}`;
-          if (d.d3plus.height > 100) {
+          if (d.d3plus.height > 200) {
             return font;
           }
 
@@ -85,11 +90,11 @@ export default {
 </script>
 
 <style lang='scss'>
-    #chart {
-    width: 100%;
+  #chart {
+    width: 75vw;
     height: 80vh;
     position: relative;
-    display: block;
+    display: inline-block;
     vertical-align: top;
     > div {
       margin: 0 auto;
@@ -97,6 +102,12 @@ export default {
     text {
       text-transform: uppercase;
     }
+  }
+  #sidebar {
+    width: 20vw;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
   }
   .font700, .font600, .font800 {
     text.d3plus_label {

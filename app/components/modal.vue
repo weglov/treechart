@@ -51,5 +51,8 @@ export default {
     padding: 5vh;
     box-shadow: 0px 0 150vh 8px #000;
     margin: 3vh 3vw;
+    li {
+      display: block;
+    }
   }
 </style>
