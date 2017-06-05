@@ -81,7 +81,7 @@ export default {
 <style lang='scss'>
     #chart {
     width: 100%;
-    height: 85vh;
+    height: 80vh;
     position: relative;
     display: block;
     vertical-align: top;
@@ -92,9 +92,14 @@ export default {
       text-transform: uppercase;
     }
   }
-  .font700 {
+  .font700, .font600, .font800 {
     text {
       font-size: 90px !important;
+    }
+  }
+  .font900, .font1000 {
+    text {
+      font-size: 140px !important;
     }
   }
   .font500, .font400 {

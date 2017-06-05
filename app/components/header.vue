@@ -27,7 +27,7 @@ export default {
     overflow: hidden;
     p {
       font-size: 5.5vh;
-      display: table-cell;
+      display: inline-block;
       width: 65vw;
       text-align: left;
       color: #FFFFFF;

@@ -1,14 +1,15 @@
 <template>
   <div class="counter">
-    <div class='polls'>{{ emoji.get('ballot_box_with_ballot') }}</div>
+    <div class='polls'></div>
     <div class='number'>
       <i-count-up
         v-if='poll'
         v-bind:start='poll'
         v-bind:end='end'
         :decimals='0'
+        v-bind:decimals='decimals'
         v-bind:duration='duration'
-        :options='options'
+        v-bind:options='options'
         :callback='callback'
       ></i-count-up>
     </div>
@@ -16,7 +17,6 @@
 </template>
 
 <script>
-import emoji from 'node-emoji';
 import config from '../config/';
 import _ from 'lodash';
 import ICountUp from 'vue-countup-v2';
@@ -29,8 +29,8 @@ export default {
     return {
       poll: 0,
       end: 0,
-      emoji: emoji,
       duration: config.timer,
+      decimals: 0,
       options: {
         useEasing: true,
         useGrouping: true,
@@ -52,9 +52,16 @@ export default {
       this.$http({ url: `${config.baseUrl}poll`, method: 'GET', emulateJSON: true })
         .then((response) => {
           let count = _.toNumber(response.body.totalPollHits);
-          if (count > 10000) {
+          if (count > 10000 && count < 1000000) {
             count = count / 1000;
             this.options.suffix = 'к';
+          } else if (count > 1000000) {
+            count = count / 1000000;
+            this.options.suffix = 'м';
+            this.decimals = 1;
+          } else {
+            this.decimals = 0;
+            this.options.suffix = '';
           }
 
           if (first) this.poll = count - count / 5; this.end = count;
@@ -72,13 +79,17 @@ export default {
 <style lang='scss'>
   .counter {
     .polls {
-      font-size: 9vh;
       font-weight: bold;
       display: inline-block;
       vertical-align: bottom;
       color: #e3e3e3;
       margin: 0 1vw;
       line-height: 1;
+      background: url('../assets/giphy.gif') no-repeat;
+      background-size: contain;
+      height: 12vh;
+      width: 5vw;
+      margin-bottom: 2vh;
     }
     .number {
       line-height: 1;
