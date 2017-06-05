@@ -64,7 +64,7 @@ export default {
             this.options.suffix = '';
           }
 
-          if (first) this.poll = count - count / 5; this.end = count;
+          if (first) this.poll = count - count / 10; this.end = count;
           this.end = count;
         })
     },
@@ -78,16 +78,18 @@ export default {
 
 <style lang='scss'>
   .counter {
+    width: 30vw;
+    overflow: hidden;
     .polls {
       font-weight: bold;
       display: inline-block;
       vertical-align: bottom;
       color: #e3e3e3;
-      margin: 0 1vw;
+      margin: 0;
       line-height: 1;
       background: url('../assets/giphy.gif') no-repeat;
       background-size: contain;
-      height: 12vh;
+      height: 6vh;
       width: 5vw;
       margin-bottom: 2vh;
     }
@@ -100,6 +102,23 @@ export default {
       font-size: 4rem;
       color: #fff;
       text-align: center;
+    }
+  }
+  @media all and (max-width: 680px) {
+    header {
+      p {
+        display: block;
+        width: 100%;
+      }
+      .counter {
+        width: 100%; 
+        display: block;
+        text-align: center;
+        .polls {
+          height: 6vh;
+          width: 15vw;
+        }
+      }
     }
   }
 </style>

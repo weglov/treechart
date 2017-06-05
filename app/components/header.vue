@@ -26,7 +26,7 @@ export default {
     padding: 0 0 25px;
     overflow: hidden;
     p {
-      font-size: 5.5vh;
+      font-size: 4.5vh;
       display: inline-block;
       width: 65vw;
       text-align: left;
