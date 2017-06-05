@@ -43,10 +43,16 @@ export default {
         .font({ weight: 'bold', 'text-transform': "uppercase" })
         .background('#323232')
         .class((d) => {
-          return `font${_.floor(d.d3plus.width, -2)}`;
+          const font = `font${_.floor(d.d3plus.width, -2)}`;
+          if (d.d3plus.height > 100) {
+            return font;
+          }
+
+          return null;
         })
         .labels({
           align: 'middle',
+          valign: 'top',
         })
         .legend(false)
         .draw();
@@ -93,17 +99,17 @@ export default {
     }
   }
   .font700, .font600, .font800 {
-    text {
+    text.d3plus_label {
       font-size: 90px !important;
     }
   }
   .font900, .font1000 {
-    text {
+    text.d3plus_label {
       font-size: 140px !important;
     }
   }
   .font500, .font400 {
-    text {
+    text.d3plus_label {
       font-size: 70px !important;
     }
   }
