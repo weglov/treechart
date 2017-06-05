@@ -19,7 +19,7 @@ export default {
     bottom: 0;
     font-size: 3vh;
     padding-top: 10vh;
-    margin: 0 -25px;
+    margin: 0;
     width: 100%;
     left: 0;
     right: 0;
