@@ -1,25 +1,28 @@
 <template>
     <header>
       <p>🙀🤖<span> Проголосуй на <b><a href='/'>ODN.PW</a></b> и выиграй</span> 🏆</p>
-      <counter-component v-if=''></counter-component>
+      <counter-component></counter-component>
+      <top-component></top-component>
     </header>
 </template>
 
 <script>
 import counterComponent from './counter.vue';
+import topComponent from './top.vue';
 
 export default {
   components: {
     counterComponent,
-  }, 
+    topComponent,
+  },
 };
 
 </script>
 
 <style lang='scss'>
   header {
-    height: 10vh;
-    display: table;
+    min-height: 10vh;
+    display: block;
     vertical-align: middle;
     position: relative;
     text-align: left;
@@ -34,6 +37,9 @@ export default {
       font-weight: bold;
       vertical-align: middle;
       text-decoration: none;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
     a {
       color: #44c0ff;
@@ -45,7 +51,10 @@ export default {
     .counter {
       text-align: right;
       width: 35vw;
-      display: table-cell;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
     }
   }
 

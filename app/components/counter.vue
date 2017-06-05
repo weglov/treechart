@@ -106,13 +106,27 @@ export default {
   }
   @media all and (max-width: 680px) {
     header {
-      p {
+      position: relative;
+      min-height: 10vh;
+      .top {
+        li:first-child {
+          display: none;
+        }
+        li {
+          display: block;
+        }
+        top: 0;
+      }
+      p, .top {
         display: block;
         width: 100%;
+        position: relative;
+        text-align: center;
       }
       .counter {
         width: 100%; 
         display: block;
+        position: relative;
         text-align: center;
         .polls {
           height: 6vh;

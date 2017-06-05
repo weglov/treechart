@@ -10,6 +10,7 @@ import vote from './components/vote.vue';
 import signIn from './components/signIn.vue';
 import chart from './components/chart.vue';
 import d from './components/d.vue';
+import NotFoundComponent from './components/notFound.vue';
 
 
 Vue.use(VueResource);
@@ -20,7 +21,8 @@ const routes = [
   { path: '/', component: vote, name: 'vote' },
   { path: '/register', component: signIn, name: 'signin' },
   { path: '/naprimer', component: d, name: 'd' },
-  { path: '/dikonaprimer', component: chart, name: 'main' }
+  { path: '/dikonaprimer', component: chart, name: 'main' },
+  { path: '*', component: NotFoundComponent }
 ];
 
 const router = new VueRouter({
