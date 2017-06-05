@@ -2,7 +2,7 @@
   <div class="top">
 
   <ol>
-    <li>🔥 TOP: </li>
+    <li v-if='users.length'>🔥 TOP: </li>
     <li v-for="(item, index) in users">
       <div class='medal' v-if='index == 0'>🥇</div>
       <div class='medal' v-if='index == 1'>🥈</div>
@@ -30,12 +30,12 @@ export default {
     fetchData(first) {
       this.$http({ url: `${config.baseUrl}userstats`, method: 'GET' })
         .then((response) => {
-          console.log(response)
           this.users = response.body.userStats;
         })
     },
     startPolling() {
       this.fetchData();
+      setInterval(() => this.fetchData(), rerender * 6);
     }
   }
 };
