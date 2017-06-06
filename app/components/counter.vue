@@ -12,6 +12,19 @@
         :callback='callback'
       ></i-count-up>
     </div>
+    <div class='totalrps' v-bind:style='{ height: height }'>
+      <div class="innerwraprps">
+        <h3>RPS 🙈</h3>
+        <div class='totalrpsvolue'>
+        <i-count-up
+          v-bind:start='oldtotal'
+          v-bind:end='total'
+          :duration='120'
+          v-bind:options='optionstotal'
+        ></i-count-up>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,6 +41,9 @@ export default {
     return {
       poll: 0,
       end: 0,
+      total: 0,
+      oldtotal: 0,
+      height: '30vh',
       duration: config.timer,
       decimals: 0,
       options: {
@@ -37,6 +53,14 @@ export default {
         decimal: '.',
         prefix: '',
         suffix: ''
+      },
+      optionstotal: {
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: 'k'
       }
     }
   },
@@ -63,7 +87,29 @@ export default {
           //   this.options.suffix = '';
           // }
 
-          if (first) this.poll = count - count / 10; this.end = count;
+          if (first) this.poll = count - count / 10; this.end = count; this.oldtotal = count; 
+
+          if (this.oldtotal !== count) {
+            if ((count - this.oldtotal) > 1000) {
+              this.total = _.floor(((count - this.oldtotal) / 120) / 1000);
+            } else {
+              this.total = _.floor((count - this.oldtotal) / 120);
+              this.optionstotal.suffix = '';
+            }
+            this.oldtotal = count;
+          }
+          if (first) {
+            this.total = 240;
+          }
+
+          if (this.total > 200) {
+            this.height = '40vh';
+          } else if (this.total > 300) {
+            this.height = '50vh';
+          } else if (this.total > 400) {
+            this.height = '60vh';
+          }
+
           this.end = count;
         })
     },
@@ -103,6 +149,38 @@ export default {
       text-align: center;
     }
   }
+  
+  .totalrps {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 4vh;
+    width: 24vw;
+    height: 25vh;
+    text-align: center;
+    background: #000;
+    background: url('../assets/giphy2.gif') no-repeat top center;
+    padding: 2vh 2vw 0;
+    background-size: cover;
+    h3 {
+      text-shadow: 0px 4px 10px #000;
+    }
+  }
+  .innerwraprps {
+    position: absolute;
+    bottom: 0;
+    width: 24vw;
+    padding: 2vh 2vw 0;
+  }
+
+  .totalrpsvolue {
+    font-size: 10vh;
+    color: red;
+    padding: 1vh;
+    font-weight: bold;
+    text-shadow: 0px 4px 10px #000;
+  }
+
   @media all and (max-width: 680px) {
     header {
       position: relative;

@@ -1,9 +1,11 @@
 <template>
   <div>
     <header-component></header-component>
+    <div class='table-chart'>
     <div id='chart'></div>
-    <div id='sidebar'>
-      <toprps></toprps>
+      <div id='sidebar'>
+        <toprps></toprps>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +47,7 @@ export default {
           'move': false,
           'click': false,
         })
-        .font({ weight: 'bold', 'text-transform': "uppercase" })
+        .font({ weight: 'bold', family: 'arial', 'text-transform': "uppercase" })
         .background('#323232')
         .class((d) => {
           const font = `font${_.floor(d.d3plus.width, -2)}`;
@@ -90,11 +92,14 @@ export default {
 </script>
 
 <style lang='scss'>
+.table-chart {
+  display: table;
+}
   #chart {
     width: 75vw;
     height: 80vh;
     position: relative;
-    display: inline-block;
+    display: table-cell;
     vertical-align: top;
     > div {
       margin: 0 auto;
@@ -105,7 +110,7 @@ export default {
   }
   #sidebar {
     width: 20vw;
-    display: inline-block;
+    display: table-cell;
     vertical-align: top;
     position: relative;
   }
