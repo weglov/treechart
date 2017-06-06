@@ -31,8 +31,7 @@ export default {
     }
   },
   created() {
-    const  email = this.$cookie.get('email');
-    if (!email) return this.$router.push('/register');
+    return this.$router.push('/register');
   },
   methods: {
     alertShow(type, text, timer = 15000) {

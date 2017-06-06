@@ -1,6 +1,6 @@
 <template>
     <header>
-      <p>🙀🤖<span> Проголосуй на <b><a href='/'>ODN.PW</a></b> и выиграй</span> 🏆</p>
+      <p>🙀🤖<span><b>That's all folks</b></span>👌🤖🤖👏👮‍🍕</p>
       <counter-component></counter-component>
       <!-- <top-component></top-component> -->
     </header>

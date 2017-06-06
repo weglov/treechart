@@ -5,13 +5,7 @@
     <li v-for="(item, index) in users">
       <div class="item-number">{{ index + 1 }}.</div>
       <div class="item-email">{{ item.email }}</div>
-      <div class="item-rps">
-        <i-count-up
-        v-bind:start='item.old'
-        v-bind:end='item.end'
-        :duration='60'
-        v-bind:options='options'
-      ></i-count-up></div>
+      <div class="item-rps">~ {{ item.rps }} rps<br>{{ item.k }}</div>
     </li>
   </ul>
 </div>
@@ -29,7 +23,12 @@ export default {
   },
   data() {
     return {
-      users: [],
+      users: [
+      {"email":"ivan@...","count":2157022717},
+      {"email":"burik666@...","count":1493273289},
+      {"email":"256@...","count":702322627},
+      {"email":"alarkin@...","count":534157110},
+      {"email":"odn@...","count":484233343}],
       options: {
         useEasing: true,
         useGrouping: true,
@@ -40,38 +39,14 @@ export default {
       }
     }
   },
-  created () {
-    this.startPolling()
+  created() {
+    this.users = _.map(this.users, (v) => {
+      const count = _.floor(v.count / 25200);
+      const countk = _.floor(v.count / 1000000);
+      return _.assign(v, { rps: count, k: `${countk} mln` })
+    })
   },
   methods: {
-    fetchData(first) {
-      this.$http({ url: `${config.baseUrl}top`, method: 'GET' })
-        .then((response) => {
-            let total = 0;
-            const new_data = _.map(response.body.top, (v, k) => {
-              if (first) {
-                return _.assign(v, { old: 0, end: 0 })
-              }
-              let user;
-              const a = _.find(this.users, { email: v.email })
-              if (a) {
-                if ((v.count - a.count) === 0) {
-                  user = a.end;
-                } else {
-                  user = _.floor((v.count - a.count) / 60);
-                }
-              }
-
-              return _.assign(v, { old: a.end, end: user || 0 });
-            });
-
-            this.users = new_data;
-        })
-    },
-    startPolling() {
-      this.fetchData(true);
-      setInterval(() => this.fetchData(), config.rerender / 3);
-    }
   }
 };
 </script>
@@ -103,7 +78,7 @@ export default {
         width: 2vw;
       }
       .item-email {
-        width: 10vw;
+        width: 7vw;
         overflow: hidden;
       }
       .item-rps {
@@ -111,6 +86,7 @@ export default {
         font-size: 2vh;
         font-weight: bold;
         text-align: right;
+            width: 10vw;
       }
     }
   }

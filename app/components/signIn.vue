@@ -1,7 +1,7 @@
 <template>
   <div id='app_vote' class='fix-width'>
     <modal></modal>
-    <form v-on:submit.prevent='submitUser'>
+    <!-- <form v-on:submit.prevent='submitUser'>
       <div class="form-element">
         <label for='email'>электропочта 📨</label>
         <input type='email' id='email' value='email' v-model='email'>
@@ -14,7 +14,7 @@
         <button>Поехали 🚀</button>
       </div>
     </form>
-    <alert v-bind:show='show' v-bind:text='text' v-bind:type='type'></alert>
+    <alert v-bind:show='show' v-bind:text='text' v-bind:type='type'></alert> -->
   </div>
 </template>
 
@@ -41,7 +41,7 @@ export default {
   },
   created() {
     const  email = this.$cookie.get('email');
-    if (email) return this.$router.push('/vote');
+    // if (email) return this.$router.push('/vote');
   },
   methods: {
     submitUser() {

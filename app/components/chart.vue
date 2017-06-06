@@ -27,6 +27,7 @@ export default {
     return {
       sample: sample_data,
       chart: '',
+      votes: { "0":705991644,"1":16930488,"2":3041851396,"3":670149141,"4":100201422,"5":109766605,"6":481494543,"7":314839313,"8":75696198,"9":1270656457 },
     }
   },
   mounted() {
@@ -70,22 +71,16 @@ export default {
         .draw();
     },
     getResult(first) {
-      this.$http({ url: `${config.baseUrl}poll?full=true`, method: 'GET', emulateJSON: true })
-        .then((response) => {
-          const votes = _.get(response, 'body.votes');
-          this.sample = _.map(this.sample, (val, key) => {
-            val.value = votes[val.id];
-            return val;
-          });
+      const votes = this.votes;
+        this.sample = _.map(this.sample, (val, key) => {
+          val.value = votes[val.id];
+          return val;
+        });
 
-          if (first) return this.renderChart();
-
-          return this.reRender();
-        })
+      return this.renderChart();
     },
     startPolling() {
       this.getResult(true);
-      setInterval(() => this.getResult(), config.rerender); 
     }
   }
 }

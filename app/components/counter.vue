@@ -39,8 +39,8 @@ export default {
   },
   data() {
     return {
-      poll: 0,
-      end: 0,
+      poll: 6713852930,
+      end: 6713852930,
       total: 0,
       oldtotal: 0,
       height: '30vh',
@@ -60,12 +60,12 @@ export default {
         separator: ',',
         decimal: '.',
         prefix: '',
-        suffix: 'k'
+        suffix: ''
       }
     }
   },
   created () {
-    this.startPolling()
+    // this.startPolling()
   },
   methods: {
     callback(ins) {

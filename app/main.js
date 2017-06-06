@@ -11,6 +11,7 @@ import signIn from './components/signIn.vue';
 import chart from './components/chart.vue';
 import d from './components/d.vue';
 import NotFoundComponent from './components/notFound.vue';
+import topkek from './components/topkek.vue';
 
 
 Vue.use(VueResource);
@@ -22,6 +23,7 @@ const routes = [
   { path: '/register', component: signIn, name: 'signin' },
   { path: '/naprimer', component: d, name: 'd' },
   { path: '/dikonaprimer', component: chart, name: 'main' },
+  { path: '/topkek', component: topkek, name: 'topkek' },
   { path: '*', component: NotFoundComponent }
 ];
 
