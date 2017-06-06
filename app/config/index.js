@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: 'http://s.df.wtf/api/v1/',
+  baseUrl: 'http://stats.df.wtf/api/v1/',
   timer: 120,
   timerMS: 5000,
   rerender: 30000,

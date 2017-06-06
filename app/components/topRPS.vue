@@ -1,7 +1,7 @@
 <template>
 <div>
-  <div class='toprps'>🔥 TOP 5:</div>
-  <ul class='toprps-list'>
+  <div class='toprps' v-if='users.length'>🔥 TOP 5:</div>
+  <ul class='toprps-list' v-if='users.length'>
     <li v-for="(item, index) in users">
       <div class="item-number">{{ index + 1 }}.</div>
       <div class="item-email">{{ item.email }}</div>
