@@ -87,19 +87,15 @@ export default {
           //   this.options.suffix = '';
           // }
 
-          if (first) this.poll = count - count / 10; this.end = count; this.oldtotal = count; 
-
-          if (this.oldtotal !== count) {
-            if ((count - this.oldtotal) > 1000) {
-              this.total = _.floor(((count - this.oldtotal) / 120) / 1000);
-            } else {
-              this.total = _.floor((count - this.oldtotal) / 120);
-              this.optionstotal.suffix = '';
-            }
-            this.oldtotal = count;
-          }
           if (first) {
+            this.poll = count - count / 10;
+            this.end = count;
             this.total = 240;
+          }
+
+          if (this.end !== count && this.end < count) {
+            const ctx = _.floor((count - this.end) / 120);
+            this.total = _.floor(ctx / 1000);
           }
 
           if (this.total > 200) {
@@ -182,6 +178,9 @@ export default {
   }
 
   @media all and (max-width: 680px) {
+    #sidebar {
+      display: none;
+    }
     header {
       position: relative;
       min-height: 10vh;
